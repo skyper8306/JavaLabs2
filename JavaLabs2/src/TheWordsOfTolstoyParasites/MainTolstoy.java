@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 // Файл для анализа https://drive.google.com/open?id=1YnRy5H8Emx4kyA1-lLZkNuY8LDTplulu
 //* Выяснить самые популярные прилагательные в тексте."
 
+// который=161, которые=112
 public class MainTolstoy {
     public static void main(String args[]) {
         int minLenWords = 3, maxLenWords = 12;

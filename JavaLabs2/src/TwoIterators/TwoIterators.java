@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 //Написать метод, на вход - 2 итератора по числам. известно, что коллекции под итераторами упорядочены и бесконечны.
 // Необходимо вывести все элементы первой коллекции, которых нет во второй. Напишите junit-тесты.
 
+//
 public class TwoIterators {
     public static <T> ArrayList<T> abc(Iterator<T> it1, Iterator<T> it2) {
         ArrayList<T> arr = new ArrayList<>();

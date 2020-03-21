@@ -31,7 +31,7 @@ public class Robot extends Thread {
         }
     });
 
-    synchronized void changeLegPosition(boolean leg, String name) {
+    void changeLegPosition(boolean leg, String name) {
         leg = !leg;
         System.out.println(name);
     }
