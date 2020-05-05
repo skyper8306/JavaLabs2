@@ -18,6 +18,8 @@ package Bank;
 //
 //Какие проблемы у метода transferMoney? Как исправить метод?"
 
+import java.util.concurrent.locks.Lock;
+
 public class MainBank {
     static class Account {
         private String id;
@@ -40,14 +42,13 @@ public class MainBank {
         }
     }
 
-    //В общем смысл в том чтобы несколько потоков одновременно не получили доступ к одному ресурсу(аккаунту).
-    //Но если исправлять только этот метод, получится что два разных потока не смогут параллельно выполняться с 4 разными аккаунтами (откуда1, куда2) (откуда3, куда4)
-    synchronized static public void transferMoney(Account acc1, Account acc2, int summ) throws InterruptedException {
-        System.out.println("before");
-        Thread.sleep(50);
-        acc1.decrement(summ);
-        acc2.increment(summ);
-        System.out.println("after");
+    static public void transferMoney(Account acc1, Account acc2, int summ) throws InterruptedException {
+        synchronized (acc1){
+            acc1.decrement(summ);
+        }
+        synchronized (acc2) {
+            acc2.increment(summ);
+        }
     }
 
     public static void main(String args[]) {
